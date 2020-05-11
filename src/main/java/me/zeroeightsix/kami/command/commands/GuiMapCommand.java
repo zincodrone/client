@@ -29,7 +29,7 @@ public class GuiMapCommand extends Command {
     private void mapRec(String prefix, Component component) {
         Command.sendChatMessage(prefix + component.getClass().getSimpleName() + " " + component.getSpace().toString());
         Optional.ofNullable(component.getChildren()).ifPresent(components -> {
-            final String p = String.join("", Collections.nCopies(prefix.length(), " ")) + "├ ";
+            final String p = String.join("", Collections.nCopies(prefix.length(), " ")) + "\\u251c ";
             components.forEach(component1 -> mapRec(p, component1));
         });
     }
