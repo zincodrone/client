@@ -18,6 +18,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiShulkerBox;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.AbstractHorse;
@@ -171,7 +172,6 @@ public class ForgeEventProcessor {
 
             HungerOverlayRenderHelper.drawExhaustionOverlay(HungerOverlayUtils.getExhaustion(player), mc, left, top, 1f);
         }
-
     }
 
     @SubscribeEvent
@@ -183,10 +183,10 @@ public class ForgeEventProcessor {
             target = RenderGameOverlayEvent.ElementType.HEALTHMOUNT;
 
         if (event.getType() == target) {
-//            GlStateManager.pushMatrix();
-
-//            GlStateManager.popMatrix();
             MODULE_MANAGER.onRender();
+            GlStateManager.pushMatrix();
+//            UIRenderer.renderAndUpdateFrames();
+            GlStateManager.popMatrix();
         } else if (event.getType() == RenderGameOverlayEvent.ElementType.BOSSINFO && MODULE_MANAGER.isModuleEnabled(BossStack.class)) {
             BossStack.render(event);
         }
