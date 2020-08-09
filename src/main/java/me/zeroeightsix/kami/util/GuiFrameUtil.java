@@ -1,6 +1,6 @@
 package me.zeroeightsix.kami.util;
 
-import me.zeroeightsix.kami.KamiMod;
+/*import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.gui.kami.KamiGUI;
 import me.zeroeightsix.kami.gui.kami.component.SettingsPanel;
 import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
@@ -10,7 +10,7 @@ import org.lwjgl.opengl.Display;
 
 import java.util.List;
 
-import static me.zeroeightsix.kami.gui.kami.DisplayGuiScreen.getScale;
+import static me.zeroeightsix.kami.gui.kami.DisplayGuiScreen.getScale;*/
 
 /**
  * @author dominikaaaa
@@ -18,7 +18,7 @@ import static me.zeroeightsix.kami.gui.kami.DisplayGuiScreen.getScale;
  */
 public class GuiFrameUtil {
     // This is bad, but without a rearchitecture, it's probably staying... - 20kdc and dominikaaaa
-    public static Frame getFrameByName(String name) {
+/*    public static Frame getFrameByName(String name) {
         KamiGUI kamiGUI = KamiMod.getInstance().getGuiManager();
         if (kamiGUI == null)
             return null;
@@ -29,7 +29,7 @@ public class GuiFrameUtil {
         return null;
     }
 
-    /* Additional method to prevent calling kamiGui if you already have an instance */
+    *//* Additional method to prevent calling kamiGui if you already have an instance *//*
     public static Frame getFrameByName(KamiGUI kamiGUI, String name) {
         if (kamiGUI == null)
             return null;
@@ -55,5 +55,5 @@ public class GuiFrameUtil {
             if (frame.getX() < 0) frame.setX(0);
             if (frame.getY() < 0) frame.setY(0);
         }
-    }
+    }*/
 }

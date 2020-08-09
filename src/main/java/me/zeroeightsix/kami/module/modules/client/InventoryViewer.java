@@ -1,6 +1,6 @@
 package me.zeroeightsix.kami.module.modules.client;
 
-import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
+//import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -13,7 +13,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import static me.zeroeightsix.kami.util.GuiFrameUtil.getFrameByName;
+//import static me.zeroeightsix.kami.util.GuiFrameUtil.getFrameByName;
 import static me.zeroeightsix.kami.util.MessageSendHelper.sendDisableMessage;
 
 /**
@@ -80,14 +80,14 @@ public class InventoryViewer extends Module {
 
     @Override
     public void onRender() {
-        Frame frame = getFrameByName("inventory viewer");
-        if (frame == null)
-            return;
-        if (frame.isPinned() && !frame.isMinimized()) {
-            final NonNullList<ItemStack> items = mc.player.inventory.mainInventory;
-            boxRender(frame.getX(), frame.getY());
-            itemRender(items, frame.getX(), frame.getY());
-        }
+//        Frame frame = getFrameByName("inventory viewer");
+//        if (frame == null)
+//            return;
+//        if (frame.isPinned() && !frame.isMinimized()) {
+//            final NonNullList<ItemStack> items = mc.player.inventory.mainInventory;
+//            boxRender(frame.getX(), frame.getY());
+//            itemRender(items, frame.getX(), frame.getY());
+//        }
     }
 
     private void itemRender(final NonNullList<ItemStack> items, final int x, final int y) {

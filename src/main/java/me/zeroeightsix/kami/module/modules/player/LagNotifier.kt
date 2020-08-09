@@ -4,7 +4,7 @@ import me.zero.alpine.listener.EventHandler
 import me.zero.alpine.listener.EventHook
 import me.zero.alpine.listener.Listener
 import me.zeroeightsix.kami.event.events.PacketEvent.Receive
-import me.zeroeightsix.kami.gui.kami.DisplayGuiScreen
+//import me.zeroeightsix.kami.gui.kami.DisplayGuiScreen
 import me.zeroeightsix.kami.module.Module
 import me.zeroeightsix.kami.setting.Setting
 import me.zeroeightsix.kami.setting.Settings
@@ -61,11 +61,11 @@ class LagNotifier : Module() {
             if (pauseTakeoff.value) paused = true
         }
         text = text.replace("! .*".toRegex(), "! " + timeDifference() + "s")
-        val renderer = Wrapper.getFontRenderer()
-        val divider = DisplayGuiScreen.getScale()
+//        val renderer = Wrapper.getFontRenderer()
+//        val divider = DisplayGuiScreen.getScale()
 
         /* 217 is the offset to make it go high, bigger = higher, with 0 being center */
-        renderer.drawStringWithShadow(mc.displayWidth / divider / 2 - renderer.getStringWidth(text) / 2, mc.displayHeight / divider / 2 - 217, 255, 85, 85, text)
+//        renderer.drawStringWithShadow(mc.displayWidth / divider / 2 - renderer.getStringWidth(text) / 2, mc.displayHeight / divider / 2 - 217, 255, 85, 85, text)
     }
 
     override fun onDisable() {

@@ -1,7 +1,7 @@
 package me.zeroeightsix.kami.util;
 
 import me.zeroeightsix.kami.event.ForgeEventProcessor;
-import me.zeroeightsix.kami.gui.kami.RenderHelper;
+//import me.zeroeightsix.kami.gui.kami.RenderHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.init.MobEffects;
@@ -19,7 +19,7 @@ public class HungerOverlayRenderHelper {
 
         mc.getTextureManager().bindTexture(ForgeEventProcessor.icons);
 
-        RenderHelper.enableAlpha(alpha);
+//        RenderHelper.enableAlpha(alpha);
 
         for (int i = startBar; i < startBar + barsNeeded; ++i) {
             int x = left - i * 8 - 9;
@@ -37,7 +37,7 @@ public class HungerOverlayRenderHelper {
             }
         }
 
-        RenderHelper.disableAlpha(alpha);
+//        RenderHelper.disableAlpha(alpha);
 
         mc.getTextureManager().bindTexture(Gui.ICONS);
     }
@@ -53,7 +53,7 @@ public class HungerOverlayRenderHelper {
 
         mc.getTextureManager().bindTexture(Gui.ICONS);
 
-        RenderHelper.enableAlpha(alpha);
+//        RenderHelper.enableAlpha(alpha);
 
         for (int i = startBar; i < startBar + barsNeeded; ++i) {
             int idx = i * 2 + 1;
@@ -76,7 +76,7 @@ public class HungerOverlayRenderHelper {
             }
         }
 
-        RenderHelper.disableAlpha(alpha);
+//        RenderHelper.disableAlpha(alpha);
     }
 
     public static void drawExhaustionOverlay(float exhaustion, Minecraft mc, int left, int top, float alpha) {
@@ -88,9 +88,9 @@ public class HungerOverlayRenderHelper {
         int width = (int) (ratio * 81);
         int height = 9;
 
-        RenderHelper.enableAlpha(.75f);
+//        RenderHelper.enableAlpha(.75f);
         mc.ingameGUI.drawTexturedModalRect(left - width, top, 81 - width, 18, width, height);
-        RenderHelper.disableAlpha(.75f);
+//        RenderHelper.disableAlpha(.75f);
 
         mc.getTextureManager().bindTexture(Gui.ICONS);
     }

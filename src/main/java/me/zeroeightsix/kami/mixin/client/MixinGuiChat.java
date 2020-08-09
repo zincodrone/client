@@ -1,7 +1,7 @@
 package me.zeroeightsix.kami.mixin.client;
 
 import me.zeroeightsix.kami.command.Command;
-import me.zeroeightsix.kami.gui.mc.KamiGuiChat;
+//import me.zeroeightsix.kami.gui.mc.KamiGuiChat;
 import me.zeroeightsix.kami.util.Wrapper;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.GuiTextField;
@@ -29,13 +29,13 @@ public abstract class MixinGuiChat {
     @Shadow
     public abstract void initGui();
 
-    @Inject(method = "Lnet/minecraft/client/gui/GuiChat;keyTyped(CI)V", at = @At("RETURN"))
+/*    @Inject(method = "Lnet/minecraft/client/gui/GuiChat;keyTyped(CI)V", at = @At("RETURN"))
     public void returnKeyTyped(char typedChar, int keyCode, CallbackInfo info) {
         if (!(Wrapper.getMinecraft().currentScreen instanceof GuiChat) || Wrapper.getMinecraft().currentScreen instanceof KamiGuiChat)
             return;
         if (inputField.getText().startsWith(Command.getCommandPrefix())) {
             Wrapper.getMinecraft().displayGuiScreen(new KamiGuiChat(inputField.getText(), historyBuffer, sentHistoryCursor));
         }
-    }
+    }*/
 
 }

@@ -11,12 +11,12 @@ import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.CommandManager;
 import me.zeroeightsix.kami.emoji.KamiMoji;
 import me.zeroeightsix.kami.event.ForgeEventProcessor;
-import me.zeroeightsix.kami.gui.kami.KamiGUI;
+/*import me.zeroeightsix.kami.gui.kami.KamiGUI;
 import me.zeroeightsix.kami.gui.rgui.component.AlignedComponent;
 import me.zeroeightsix.kami.gui.rgui.component.Component;
 import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
 import me.zeroeightsix.kami.gui.rgui.util.ContainerHelper;
-import me.zeroeightsix.kami.gui.rgui.util.Docking;
+import me.zeroeightsix.kami.gui.rgui.util.Docking;*/
 import me.zeroeightsix.kami.module.*;
 import me.zeroeightsix.kami.module.modules.chat.ChatEncryption;
 import me.zeroeightsix.kami.module.modules.client.CommandConfig;
@@ -105,7 +105,7 @@ public class KamiMod {
     @Mod.Instance
     private static KamiMod INSTANCE;
 
-    public KamiGUI guiManager;
+//    public KamiGUI guiManager;
     public CommandManager commandManager;
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
         @Override
@@ -149,10 +149,10 @@ public class KamiMod {
         MinecraftForge.EVENT_BUS.register(new ForgeEventProcessor());
         LagCompensator.INSTANCE = new LagCompensator();
 
-        Wrapper.init();
+//        Wrapper.init();
 
-        guiManager = new KamiGUI();
-        guiManager.initializeGUI();
+//        guiManager = new KamiGUI();
+//        guiManager.initializeGUI();
 
         commandManager = new CommandManager();
 
@@ -212,7 +212,7 @@ public class KamiMod {
         if (!Files.exists(kamiConfig)) return;
         Configuration.loadConfiguration(kamiConfig);
 
-        JsonObject gui = KamiMod.INSTANCE.guiStateSetting.getValue();
+/*        JsonObject gui = KamiMod.INSTANCE.guiStateSetting.getValue();
         for (Map.Entry<String, JsonElement> entry : gui.entrySet()) {
             Optional<Component> optional = KamiMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).filter(component -> ((Frame) component).getTitle().equals(entry.getKey())).findFirst();
             if (optional.isPresent()) {
@@ -231,8 +231,8 @@ public class KamiMod {
             } else {
                 System.err.println("Found GUI config entry for " + entry.getKey() + ", but found no frame with that name");
             }
-        }
-        KamiMod.getInstance().getGuiManager().getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinnable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
+        }*/
+//        KamiMod.getInstance().getGuiManager().getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinnable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
     }
 
     public static void saveConfiguration() {
@@ -245,7 +245,7 @@ public class KamiMod {
 
     public static void saveConfigurationUnsafe() throws IOException {
         JsonObject object = new JsonObject();
-        KamiMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
+/*        KamiMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
             JsonObject frameObject = new JsonObject();
             frameObject.add("x", new JsonPrimitive(frame.getX()));
             frameObject.add("y", new JsonPrimitive(frame.getY()));
@@ -253,7 +253,7 @@ public class KamiMod {
             frameObject.add("minimized", new JsonPrimitive(frame.isMinimized()));
             frameObject.add("pinned", new JsonPrimitive(frame.isPinned()));
             object.add(frame.getTitle(), frameObject);
-        });
+        });*/
         KamiMod.INSTANCE.guiStateSetting.setValue(object);
 
         Path outputFile = Paths.get(getConfigName());
@@ -277,9 +277,9 @@ public class KamiMod {
         return INSTANCE;
     }
 
-    public KamiGUI getGuiManager() {
-        return guiManager;
-    }
+//    public KamiGUI getGuiManager() {
+//        return guiManager;
+//    }
 
     public CommandManager getCommandManager() {
         return commandManager;

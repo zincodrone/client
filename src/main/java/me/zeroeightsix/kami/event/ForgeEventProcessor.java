@@ -5,9 +5,9 @@ import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.commands.PeekCommand;
 import me.zeroeightsix.kami.event.events.DisplaySizeChangedEvent;
 import me.zeroeightsix.kami.event.events.LocalPlayerUpdateEvent;
-import me.zeroeightsix.kami.gui.UIRenderer;
-import me.zeroeightsix.kami.gui.kami.KamiGUI;
-import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
+//import me.zeroeightsix.kami.gui.UIRenderer;
+//import me.zeroeightsix.kami.gui.kami.KamiGUI;
+//import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
 import me.zeroeightsix.kami.module.MacroManager;
 import me.zeroeightsix.kami.module.modules.client.CommandConfig;
 import me.zeroeightsix.kami.module.modules.render.AntiOverlay;
@@ -83,9 +83,9 @@ public class ForgeEventProcessor {
             displayWidth = Minecraft.getMinecraft().displayWidth;
             displayHeight = Minecraft.getMinecraft().displayHeight;
 
-            KamiMod.getInstance().getGuiManager().getChildren().stream()
+/*            KamiMod.getInstance().getGuiManager().getChildren().stream()
                     .filter(component -> component instanceof Frame)
-                    .forEach(component -> KamiGUI.dock((Frame) component));
+                    .forEach(component -> KamiGUI.dock((Frame) component));*/
         }
 
         if (PeekCommand.sb != null) {
@@ -131,7 +131,7 @@ public class ForgeEventProcessor {
 
         if (Wrapper.getPlayer() == null) return;
         MODULE_MANAGER.onUpdate();
-        KamiMod.getInstance().getGuiManager().callTick(KamiMod.getInstance().getGuiManager());
+//        KamiMod.getInstance().getGuiManager().callTick(KamiMod.getInstance().getGuiManager());
     }
 
     @SubscribeEvent
@@ -184,7 +184,7 @@ public class ForgeEventProcessor {
         if (event.getType() == target) {
             MODULE_MANAGER.onRender();
             GlStateManager.pushMatrix();
-            UIRenderer.renderAndUpdateFrames();
+//            UIRenderer.renderAndUpdateFrames();
             GlStateManager.popMatrix();
         } else if (event.getType() == RenderGameOverlayEvent.ElementType.BOSSINFO && MODULE_MANAGER.isModuleEnabled(BossStack.class)) {
             BossStack.render(event);

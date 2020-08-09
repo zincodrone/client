@@ -5,7 +5,7 @@ import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.syntax.ChunkBuilder;
 import me.zeroeightsix.kami.command.syntax.parsers.DependantParser;
 import me.zeroeightsix.kami.command.syntax.parsers.EnumParser;
-import me.zeroeightsix.kami.gui.kami.KamiGUI;
+//import me.zeroeightsix.kami.gui.kami.KamiGUI;
 import me.zeroeightsix.kami.module.MacroManager;
 import me.zeroeightsix.kami.module.WaypointManager;
 import me.zeroeightsix.kami.util.Macro;
@@ -82,8 +82,8 @@ public class ConfigCommand extends Command {
     }
 
     private void reload() {
-        KamiMod.getInstance().guiManager = new KamiGUI();
-        KamiMod.getInstance().guiManager.initializeGUI();
+//        KamiMod.getInstance().guiManager = new KamiGUI();
+//        KamiMod.getInstance().guiManager.initializeGUI();
         KamiMod.loadConfiguration();
         sendChatMessage("Configuration and macros reloaded!");
     }
