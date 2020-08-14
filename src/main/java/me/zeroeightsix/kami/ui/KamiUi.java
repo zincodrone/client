@@ -2,6 +2,7 @@ package me.zeroeightsix.kami.ui;
 
 import me.zeroeightsix.kami.ui.element.IKamiUiElement;
 import me.zeroeightsix.kami.ui.element.KamiUiElementBackground;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 
 import java.util.LinkedList;
@@ -32,6 +33,7 @@ public class KamiUi extends GuiScreen {
      * TODO: Create a seperate ctor for recovering a saved ui states (like x,y positions of elements).
      */
     public KamiUi() {
+        this.mc = Minecraft.getMinecraft();
         uiElements.add(new KamiUiElementBackground(this));
     }
 

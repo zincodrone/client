@@ -1,6 +1,6 @@
 package me.zeroeightsix.kami.module.modules;
 
-//import me.zeroeightsix.kami.gui.kami.DisplayGuiScreen;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import org.lwjgl.input.Keyboard;
 
@@ -18,12 +18,10 @@ public class ClickGUI extends Module {
         getBind().setKey(Keyboard.KEY_Y);
     }
 
-/*    @Override
+    @Override
     protected void onEnable() {
-        if (!(mc.currentScreen instanceof DisplayGuiScreen)) {
-            mc.displayGuiScreen(new DisplayGuiScreen(mc.currentScreen));
-        }
-        disable();
-    }*/
+        KamiMod.KAMI_UI.showScreen();
+        this.onDisable();
+    }
 
 }
