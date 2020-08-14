@@ -1,6 +1,7 @@
 package me.zeroeightsix.kami.ui;
 
 import me.zeroeightsix.kami.ui.element.IKamiUiElement;
+import me.zeroeightsix.kami.ui.element.KamiUiElementBackground;
 import net.minecraft.client.gui.GuiScreen;
 
 import java.util.LinkedList;
@@ -25,6 +26,14 @@ public class KamiUi extends GuiScreen {
      * and user interactions are processed from head to tail.
      */
     private List<IKamiUiElement> uiElements = new LinkedList<>();
+
+    /**
+     * Initialise the UI
+     * TODO: Create a seperate ctor for recovering a saved ui states (like x,y positions of elements).
+     */
+    public KamiUi() {
+        uiElements.add(new KamiUiElementBackground(this));
+    }
 
 
 }

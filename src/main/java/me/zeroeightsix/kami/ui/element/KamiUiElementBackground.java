@@ -10,7 +10,7 @@ public class KamiUiElementBackground extends AbstractKamiUiElement {
 
     @Override
     public void drawElement(int x, int y) {
-
+        getScreen().drawWorldBackground(0); // draw a default gray transparent background over the screen.
     }
 
     @Override
