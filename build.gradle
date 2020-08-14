@@ -72,6 +72,9 @@ repositories {
         name = "forgelin-repo"
         url "http://maven.shadowfacts.net/"
     }
+    maven {
+        url = "https://maven.modmuss50.me/"
+    }
     mavenCentral()
     jcenter()
 }
@@ -104,6 +107,7 @@ dependencies {
     compile group: "org.jetbrains", name: "annotations", version: annotations_version
     compile group: "org.jetbrains.kotlinx", name: "kotlinx-coroutines-core", version: coroutines_version
     compile group: "org.jetbrains.kotlinx", name: "kotlinx-coroutines-jdk8", version: coroutines_version
+    implementation "me.zeroeightsix:fiber:${project.fiber_version}"
 }
 
 processResources {
