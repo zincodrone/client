@@ -1,6 +1,10 @@
 package me.zeroeightsix.kami.ui;
 
+import me.zeroeightsix.kami.ui.element.IKamiUiElement;
 import net.minecraft.client.gui.GuiScreen;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author Sasha
@@ -15,4 +19,12 @@ import net.minecraft.client.gui.GuiScreen;
  * - Use Fiber for storing settings (depending on what settings there are).
  */
 public class KamiUi extends GuiScreen {
+
+    /**
+     * The List of regstered IKamiUiElements. They are rendered from head to tail,
+     * and user interactions are processed from head to tail.
+     */
+    private List<IKamiUiElement> uiElements = new LinkedList<>();
+
+
 }
