@@ -35,5 +35,9 @@ public class KamiUi extends GuiScreen {
         uiElements.add(new KamiUiElementBackground(this));
     }
 
+    public void showScreen() {
+        mc.displayGuiScreen(this);
+    }
+
 
 }

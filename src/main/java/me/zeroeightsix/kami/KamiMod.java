@@ -19,6 +19,7 @@ import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import me.zeroeightsix.kami.setting.SettingsRegister;
 import me.zeroeightsix.kami.setting.config.Configuration;
+import me.zeroeightsix.kami.ui.KamiUi;
 import me.zeroeightsix.kami.util.Friends;
 import me.zeroeightsix.kami.util.LagCompensator;
 import me.zeroeightsix.kami.util.RichPresence;
@@ -93,6 +94,8 @@ public class KamiMod {
     public static final ModuleManager MODULE_MANAGER = new ModuleManager();
 
     public static final KamiMoji KAMIMOJI = new KamiMoji();
+
+    public static final KamiUi KAMI_UI = new KamiUi(); // TODO make non-final when GUI saves data
 
     public static String latest; // latest version (null if no internet or exception occurred)
     public static boolean isLatest;
