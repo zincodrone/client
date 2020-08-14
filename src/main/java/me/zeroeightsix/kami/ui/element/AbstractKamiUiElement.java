@@ -1,5 +1,7 @@
 package me.zeroeightsix.kami.ui.element;
 
+import net.minecraft.client.gui.GuiScreen;
+
 /**
  * @author Sasha
  * This class outlines the basic functionality of a barebones IKamiUiElement
@@ -10,6 +12,11 @@ public abstract class AbstractKamiUiElement implements IKamiUiElement {
     private int y;
     private int height;
     private int width;
+    private GuiScreen screen;
+
+    public AbstractKamiUiElement(GuiScreen screen) {
+        this.screen = screen;
+    }
 
     @Override
     public abstract void drawElement(int x, int y);
@@ -58,5 +65,12 @@ public abstract class AbstractKamiUiElement implements IKamiUiElement {
     @Override
     public void setWidth(int width) {
         this.width = width;
+    }
+
+    /**
+     * @return the GuiScreen that this element is bound to
+     */
+    public GuiScreen getScreen() {
+        return this.screen;
     }
 }

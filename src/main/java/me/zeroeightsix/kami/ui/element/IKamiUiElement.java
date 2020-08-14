@@ -21,7 +21,7 @@ public interface IKamiUiElement {
     boolean onMouseEngage(int x, int y, int button);
 
     /**
-     * Invoked when the pointing device is release on the KamiUi GuiScreen instance
+     * Invoked when the pointing device is released on the KamiUi GuiScreen instance
      *
      * @param x      The X position of the cursor when the pointing device is released
      * @param y      The Y position of the cursor when the pointing device is released
