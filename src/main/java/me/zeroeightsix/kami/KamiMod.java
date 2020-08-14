@@ -1,22 +1,14 @@
 package me.zeroeightsix.kami;
 
 import com.google.common.base.Converter;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonPrimitive;
 import me.zero.alpine.EventBus;
 import me.zero.alpine.EventManager;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.CommandManager;
 import me.zeroeightsix.kami.emoji.KamiMoji;
 import me.zeroeightsix.kami.event.ForgeEventProcessor;
-/*import me.zeroeightsix.kami.gui.kami.KamiGUI;
-import me.zeroeightsix.kami.gui.rgui.component.AlignedComponent;
-import me.zeroeightsix.kami.gui.rgui.component.Component;
-import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
-import me.zeroeightsix.kami.gui.rgui.util.ContainerHelper;
-import me.zeroeightsix.kami.gui.rgui.util.Docking;*/
 import me.zeroeightsix.kami.module.*;
 import me.zeroeightsix.kami.module.modules.chat.ChatEncryption;
 import me.zeroeightsix.kami.module.modules.client.CommandConfig;
@@ -30,7 +22,6 @@ import me.zeroeightsix.kami.setting.config.Configuration;
 import me.zeroeightsix.kami.util.Friends;
 import me.zeroeightsix.kami.util.LagCompensator;
 import me.zeroeightsix.kami.util.RichPresence;
-import me.zeroeightsix.kami.util.Wrapper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -50,11 +41,15 @@ import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Optional;
 
 import static me.zeroeightsix.kami.DiscordPresence.setCustomIcons;
+
+/*import me.zeroeightsix.kami.gui.kami.KamiGUI;
+import me.zeroeightsix.kami.gui.rgui.component.AlignedComponent;
+import me.zeroeightsix.kami.gui.rgui.component.Component;
+import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
+import me.zeroeightsix.kami.gui.rgui.util.ContainerHelper;
+import me.zeroeightsix.kami.gui.rgui.util.Docking;*/
 
 /**
  * Created by 086 on 7/11/2017.
@@ -82,7 +77,11 @@ public class KamiMod {
     public static final String GITHUB_LINK = "https://github.com/kami-blue/";
     public static final String WEBSITE_LINK = "https://kamiblue.org";
 
-    public static final String KAMI_KANJI = "\u30ab\u30df\u30d6\u30eb";
+
+    /**
+     * Reads 「カミブル」
+     */
+    public static final String KAMI_KATAKANA = "\u30ab\u30df\u30d6\u30eb";
     public static final char colour = '\u00A7';
     public static final char separator = '\u23d0';
 
@@ -135,7 +134,7 @@ public class KamiMod {
         KAMIMOJI.start();
 
         if (MODULE_MANAGER.getModuleT(CommandConfig.class).customTitle.getValue()) {
-            Display.setTitle(MODNAME + " " + KAMI_KANJI + " " + VER_SMALL);
+            Display.setTitle(MODNAME + " " + KAMI_KATAKANA + " " + VER_SMALL);
         }
     }
 

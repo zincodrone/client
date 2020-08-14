@@ -4,7 +4,6 @@ import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.syntax.ChunkBuilder;
 import me.zeroeightsix.kami.module.Module;
-import net.minecraft.client.ClientBrandRetriever;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.text.TextFormatting;
@@ -54,7 +53,7 @@ public class TroubleshootCommand extends Command {
         sendChatMessage("Enabled modules: " + f + "\n" + TextFormatting.GRAY + enabled);
         if (args.length >= 2) return;
         sendChatMessage(ForgeVersion.getMajorVersion() + "." + ForgeVersion.getMinorVersion() + "." + ForgeVersion.getRevisionVersion() + "." + ForgeVersion.getBuildVersion());
-        sendChatMessage(KamiMod.MODNAME + " " + KamiMod.KAMI_KANJI + " " + KamiMod.VER_FULL_BETA);
+        sendChatMessage(KamiMod.MODNAME + " " + KamiMod.KAMI_KATAKANA + " " + KamiMod.VER_FULL_BETA);
         sendChatMessage("CPU: " + OpenGlHelper.getCpu() + " GPU: " + GlStateManager.glGetString(GL11.GL_VENDOR));
         sendChatMessage("Please send a screenshot of the full output to the developer or moderator who's helping you!");
     }
