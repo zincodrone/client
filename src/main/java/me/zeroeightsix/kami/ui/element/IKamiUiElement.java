@@ -5,8 +5,8 @@ public interface IKamiUiElement {
     /**
      * Draw the element to the screen
      *
-     * @param x X coordinate of where to draw (2D space)
-     * @param y Y coordinate of where to draw (2D space)
+     * @param x X coordinate of the cursor
+     * @param y Y coordinate of the cursor
      */
     void drawElement(int x, int y);
 
