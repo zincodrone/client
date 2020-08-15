@@ -1,6 +1,5 @@
 package me.zeroeightsix.kami.ui.element;
 
-import me.zeroeightsix.kami.util.ColourHolder;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
 
@@ -30,7 +29,7 @@ public class BasicKamiUiButton extends AbstractKamiUiElement {
     }
 
     private void drawNormal() {
-        Gui.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight(), ColourHolder.fromHex(hexColor, true).toJavaColour().getRGB());
+        Gui.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight(), hexColor);
     }
 
     @Override

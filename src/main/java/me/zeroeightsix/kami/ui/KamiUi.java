@@ -5,6 +5,7 @@ import me.zeroeightsix.kami.ui.element.IKamiUiElement;
 import me.zeroeightsix.kami.ui.element.KamiUiElementBackground;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.text.TextComponentString;
 
 import java.util.LinkedList;
@@ -37,7 +38,7 @@ public class KamiUi extends GuiScreen {
     public KamiUi() {
         this.mc = Minecraft.getMinecraft();
         uiElements.add(new KamiUiElementBackground(this));
-        uiElements.add(new BasicKamiUiButton(this, "Summon Herobrine", 20, 20, 50, 300, 0xff0000aa, basicKamiUiButton -> {
+        uiElements.add(new BasicKamiUiButton(this, "Summon Herobrine", 20, 20, 50, 300, 0xff000044, basicKamiUiButton -> {
             basicKamiUiButton.getScreen().mc.player.sendMessage(new TextComponentString("Big boops"));
         }));
     }
@@ -49,7 +50,9 @@ public class KamiUi extends GuiScreen {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         super.drawScreen(mouseX, mouseY, partialTicks);
+        GlStateManager.enableAlpha();
         uiElements.forEach(e -> e.drawElement(e.getX(), e.getY()));
+        GlStateManager.disableAlpha();
     }
 
 }
