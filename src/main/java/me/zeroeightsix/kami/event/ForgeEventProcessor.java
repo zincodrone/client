@@ -5,15 +5,13 @@ import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.commands.PeekCommand;
 import me.zeroeightsix.kami.event.events.DisplaySizeChangedEvent;
 import me.zeroeightsix.kami.event.events.LocalPlayerUpdateEvent;
-//import me.zeroeightsix.kami.gui.UIRenderer;
-//import me.zeroeightsix.kami.gui.kami.KamiGUI;
-//import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
 import me.zeroeightsix.kami.module.MacroManager;
 import me.zeroeightsix.kami.module.modules.client.CommandConfig;
 import me.zeroeightsix.kami.module.modules.render.AntiOverlay;
 import me.zeroeightsix.kami.module.modules.render.BossStack;
 import me.zeroeightsix.kami.module.modules.render.HungerOverlay;
 import me.zeroeightsix.kami.module.modules.render.NoRender;
+import me.zeroeightsix.kami.ui.KamiUi;
 import me.zeroeightsix.kami.util.HungerOverlayRenderHelper;
 import me.zeroeightsix.kami.util.HungerOverlayUtils;
 import me.zeroeightsix.kami.util.Wrapper;
@@ -21,7 +19,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiShulkerBox;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.AbstractHorse;
@@ -48,8 +45,11 @@ import org.lwjgl.input.Keyboard;
 
 import static me.zeroeightsix.kami.KamiMod.MODULE_MANAGER;
 import static me.zeroeightsix.kami.util.MessageSendHelper.sendChatMessage;
-import static me.zeroeightsix.kami.util.Wrapper.getPlayer;
-import static me.zeroeightsix.kami.util.Wrapper.getWorld;
+import static me.zeroeightsix.kami.util.Wrapper.*;
+
+//import me.zeroeightsix.kami.gui.UIRenderer;
+//import me.zeroeightsix.kami.gui.kami.KamiGUI;
+//import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
 
 /**
  * Created by 086 on 11/11/2017.
@@ -171,6 +171,7 @@ public class ForgeEventProcessor {
 
             HungerOverlayRenderHelper.drawExhaustionOverlay(HungerOverlayUtils.getExhaustion(player), mc, left, top, 1f);
         }
+
     }
 
     @SubscribeEvent
@@ -182,10 +183,12 @@ public class ForgeEventProcessor {
             target = RenderGameOverlayEvent.ElementType.HEALTHMOUNT;
 
         if (event.getType() == target) {
+//            GlStateManager.pushMatrix();
+            if (getMinecraft().currentScreen instanceof KamiUi) {
+                KamiMod.KAMI_UI.drawScreen();
+            }
+//            GlStateManager.popMatrix();
             MODULE_MANAGER.onRender();
-            GlStateManager.pushMatrix();
-//            UIRenderer.renderAndUpdateFrames();
-            GlStateManager.popMatrix();
         } else if (event.getType() == RenderGameOverlayEvent.ElementType.BOSSINFO && MODULE_MANAGER.isModuleEnabled(BossStack.class)) {
             BossStack.render(event);
         }
