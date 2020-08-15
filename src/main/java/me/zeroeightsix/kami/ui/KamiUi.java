@@ -1,9 +1,11 @@
 package me.zeroeightsix.kami.ui;
 
+import me.zeroeightsix.kami.ui.element.BasicKamiUiButton;
 import me.zeroeightsix.kami.ui.element.IKamiUiElement;
 import me.zeroeightsix.kami.ui.element.KamiUiElementBackground;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.util.text.TextComponentString;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +37,9 @@ public class KamiUi extends GuiScreen {
     public KamiUi() {
         this.mc = Minecraft.getMinecraft();
         uiElements.add(new KamiUiElementBackground(this));
+        uiElements.add(new BasicKamiUiButton(this, "Summon Herobrine", 20, 20, 50, 300, 0xff0000aa, basicKamiUiButton -> {
+            basicKamiUiButton.getScreen().mc.player.sendMessage(new TextComponentString("Big boops"));
+        }));
     }
 
     public void showScreen() {

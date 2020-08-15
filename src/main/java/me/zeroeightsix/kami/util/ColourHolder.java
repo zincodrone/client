@@ -51,6 +51,13 @@ public class ColourHolder {
     }
 
     public void becomeHex(int hex) {
+        setR((hex & 0xFF000000) >> 16);
+        setG((hex & 0xFF0000) >> 8);
+        setB((hex & 0xFF00));
+        setA((hex & 0xFF));
+    }
+
+    public void becomeHexTransparent(int hex) {
         setR((hex & 0xFF0000) >> 16);
         setG((hex & 0xFF00) >> 8);
         setB((hex & 0xFF));
@@ -58,8 +65,14 @@ public class ColourHolder {
     }
 
     public static ColourHolder fromHex(int hex) {
+        return fromHex(hex, false);
+    }
+
+    public static ColourHolder fromHex(int hex, boolean alpha) {
         ColourHolder n = new ColourHolder(0, 0, 0);
-        n.becomeHex(hex);
+        if (alpha) {
+            n.becomeHexTransparent(hex);
+        } else n.becomeHex(hex);
         return n;
     }
 
