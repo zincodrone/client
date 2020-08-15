@@ -41,7 +41,9 @@ public class KamiUi extends GuiScreen {
         mc.displayGuiScreen(this);
     }
 
-    public void drawScreen() {
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        super.drawScreen(mouseX, mouseY, partialTicks);
         uiElements.forEach(e -> e.drawElement(e.getX(), e.getY()));
     }
 

@@ -11,7 +11,6 @@ import me.zeroeightsix.kami.module.modules.render.AntiOverlay;
 import me.zeroeightsix.kami.module.modules.render.BossStack;
 import me.zeroeightsix.kami.module.modules.render.HungerOverlay;
 import me.zeroeightsix.kami.module.modules.render.NoRender;
-import me.zeroeightsix.kami.ui.KamiUi;
 import me.zeroeightsix.kami.util.HungerOverlayRenderHelper;
 import me.zeroeightsix.kami.util.HungerOverlayUtils;
 import me.zeroeightsix.kami.util.Wrapper;
@@ -45,7 +44,8 @@ import org.lwjgl.input.Keyboard;
 
 import static me.zeroeightsix.kami.KamiMod.MODULE_MANAGER;
 import static me.zeroeightsix.kami.util.MessageSendHelper.sendChatMessage;
-import static me.zeroeightsix.kami.util.Wrapper.*;
+import static me.zeroeightsix.kami.util.Wrapper.getPlayer;
+import static me.zeroeightsix.kami.util.Wrapper.getWorld;
 
 //import me.zeroeightsix.kami.gui.UIRenderer;
 //import me.zeroeightsix.kami.gui.kami.KamiGUI;
@@ -184,9 +184,7 @@ public class ForgeEventProcessor {
 
         if (event.getType() == target) {
 //            GlStateManager.pushMatrix();
-            if (getMinecraft().currentScreen instanceof KamiUi) {
-                KamiMod.KAMI_UI.drawScreen();
-            }
+
 //            GlStateManager.popMatrix();
             MODULE_MANAGER.onRender();
         } else if (event.getType() == RenderGameOverlayEvent.ElementType.BOSSINFO && MODULE_MANAGER.isModuleEnabled(BossStack.class)) {
